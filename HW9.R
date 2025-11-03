@@ -73,17 +73,12 @@ ggplot(xy_df_long, aes(x = xi, y = y)) +
 ## Objective 2 #######
 ######################
 
-##--------- part a -----------------------##
-# how many coin flips are needed to determine if the flip is unfair?
-#beta for hypothesis testing Don Corleone
-#what is the probability that a coin flip is heads 4/4 times
-#fbeta(x, alpha, beta)
+##--------- parts a and b-----------------------####
 # first use p= 0.55
 #need to first randomly flip the coin 20 times? generate values of 0 or 1
 coin_heads <-rbinom(n = 20, size= 20, p= 0.55)
 coin_heads_list <- as.list(coin_heads) #putting results into a list for iterating later
-rbinom(4, 4, 0.5)
-#alpha= 5= success + 1
+#alpha= success + 1
 #beta= 1 = alpha - successes
 alpha_list <- list() #initializing an empty list
 beta_list <- list() #initializing an empty list
@@ -104,20 +99,20 @@ for (i in alpha_list) {
 set.seed(100)
 coin_heads <- rbinom(n = 20, size = 20, p = 0.55) #first prob of 0.55
 
-# Compute the probability of each observed value
+#compute the probability of each observed value
 probs <- dbinom(coin_heads, size = 20, prob = 0.55)
 
-# View a few
+#view df
 data.frame(successes = coin_heads, probability = probs)
 
 #example data with pbinom
 set.seed(100)
 coin_heads_p <- rbinom(n = 20, size = 20, p = 0.55)
 
-# Compute the probability of each observed value
+#compute the probability of each observed value
 probs_p <- pbinom(coin_heads_p, size = 20, prob = 0.55)
 
-# View a few
+#view df
 data.frame(successes = coin_heads_p, probability = probs_p)
 
 #define variables
